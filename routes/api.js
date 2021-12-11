@@ -34,7 +34,7 @@ router.put('/autos/:id', function (req, res) {
     });
 });
 
-router.delete('/student/:id', function (req, res) {
+router.delete('/autos/:id', function (req, res) {
     Auto.findOneAndDelete({ _id: req.params.id }).then(function (auto) {
         res.send(auto);
     });
