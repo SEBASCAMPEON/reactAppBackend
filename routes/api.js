@@ -26,16 +26,16 @@ router.post('/autos', function (req, res) {
 })
 
 router.put('/autos/:id', function (req, res) {
-    Auto.findOneAndUpdate({ _id: req.params.id }, req.body).then(function (auto) {
+    Auto.findOneAndUpdate({ _placa: req.params.id }, req.body).then(function (auto) {
         //Aquí ya se actualizo, pero vamos a reotrnar el nuevo elemento ya editado   
-        Auto.findOne({ _id: req.params.id }).then(function (auto) {
+        Auto.findOne({ _placa: req.params.id }).then(function (auto) {
             res.send(auto);
         })
     });
 });
 
 router.delete('/autos/:id', function (req, res) {
-    Auto.findOneAndDelete({ _id: req.params.id }).then(function (auto) {
+    Auto.findOneAndDelete({ _placa: req.params.id }).then(function (auto) {
         res.send(auto);
     });
 });
